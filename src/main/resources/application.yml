@@ -1,0 +1,10 @@
+server: 
+  port: 8090
+  
+spring:
+  application:
+    name: msv-rango-pedidos
+  profiles:
+    active: dev
+
+lito: TOPICO_PEDIDO    
