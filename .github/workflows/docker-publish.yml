@@ -23,15 +23,18 @@ jobs:
           servers: '[{"id": "rango-feed", "username": "${{ secrets.AZURE_USER }}", "password": "${{ secrets.AZURE_PASS }}"}]'
           githubServer : false
     - 
+        name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+    -
         name: Build and push
         run: |
           echo "---------| buildando app | -----------"
           mvn clean package
           echo "---------| gerando build | -----------"
-          ls -l
           docker build -t=msv-rango-pedidos:latest .
-          echo "---------| fazendo login docker hub | -----------"
-          echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
           echo "---------| enviando docker hub | -----------"
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/msv-rango-pedidos:latest
           echo "---------| Sucessão | -----------"
