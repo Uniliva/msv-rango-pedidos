@@ -30,8 +30,8 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64,linux/arm64,linux/386
           push: true
-          tags: user/app:latest
-      -
-        name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+          tags: ${IMAGE_NAME}
