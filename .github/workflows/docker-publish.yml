@@ -34,7 +34,7 @@ jobs:
           echo "---------| buildando app | -----------"
           mvn clean package
           echo "---------| gerando build | -----------"
-          docker build -t=msv-rango-pedidos:latest .
+          docker build -t=uniliva/msv-rango-pedidos:latest .
           echo "---------| enviando docker hub | -----------"
           docker push uniliva/msv-rango-pedidos:latest
           echo "---------| Sucessão | -----------"
