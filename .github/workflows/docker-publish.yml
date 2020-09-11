@@ -31,7 +31,7 @@ jobs:
           ls -l
           docker build -t=msv-rango-pedidos:latest .
           echo "---------| fazendo login docker hub | -----------"
-          docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}" docker.io
+          echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
           echo "---------| enviando docker hub | -----------"
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/msv-rango-pedidos:latest
           echo "---------| Sucessão | -----------"
