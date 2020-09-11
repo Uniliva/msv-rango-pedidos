@@ -36,6 +36,6 @@ jobs:
           echo "---------| gerando build | -----------"
           docker build -t=msv-rango-pedidos:latest .
           echo "---------| enviando docker hub | -----------"
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/msv-rango-pedidos:latest
+          docker push uniliva/msv-rango-pedidos:latest
           echo "---------| Sucessão | -----------"
           
