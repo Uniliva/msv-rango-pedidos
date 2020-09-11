@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import com.github.uniliva.librangobase.enums.TopicosKafka;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Service
@@ -16,8 +14,8 @@ public class ProducerService {
 	private KafkaTemplate<String, String> kafkaTemplate;
 
 	public void sendMessage(String message) {
-		log.info("Postando mensagem no topico: {}", TopicosKafka.TOPICO_PEDIDO);
-		this.kafkaTemplate.send(TopicosKafka.TOPICO_PEDIDO.toString(), message);
+		log.info("Postando mensagem no topico: TOPICO_PEDIDO");
+		this.kafkaTemplate.send("TOPICO_PEDIDO", message);
 	}
 
 }
