@@ -12,3 +12,4 @@
  
 ## Configuração Docker
 - IP_KAFKA_SERVER variavel do ambiente do kafka server
+- KAFKA_PORT variavel de ambiente da porta do kafka server

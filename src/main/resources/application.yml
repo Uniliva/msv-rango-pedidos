@@ -6,5 +6,4 @@ spring:
     name: msv-rango-pedidos
   profiles:
     active: dev
-
-lito: TOPICO_PEDIDO    
+topic.kafka.pedido: TOPICO_PEDIDO    
