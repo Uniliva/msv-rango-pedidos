@@ -3,6 +3,6 @@ server:
 spring:
    kafka:
      producer:
-        bootstrap-servers: ${IP_KAFKA_SERVER}
+        bootstrap-servers: ${IP_KAFKA_SERVER}:${KAFKA_PORT}
         key-serializer: org.apache.kafka.common.serialization.StringSerializer
         value-serializer: org.apache.kafka.common.serialization.StringSerializer
