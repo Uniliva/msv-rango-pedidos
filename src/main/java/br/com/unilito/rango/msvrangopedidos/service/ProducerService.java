@@ -1,5 +1,8 @@
 package br.com.unilito.rango.msvrangopedidos.service;
 
+import java.time.LocalDate;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -19,7 +22,8 @@ public class ProducerService {
 
 	public void sendMessage(String message) {
 		log.info("Postando mensagem no topico: {}", topico);
-		this.kafkaTemplate.send(topico, message);
+		String key = String.valueOf(System.currentTimeMillis()).concat("-").concat(UUID.randomUUID().toString());
+		this.kafkaTemplate.send(topico,key, message);
 	}
 
 }
